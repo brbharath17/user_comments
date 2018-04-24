@@ -1,0 +1,12 @@
+<h1>Add new comment</h1>
+
+<!-- <p>
+  <textarea rows="4" cols="50">
+  </textarea>
+</p>
+<input type="submit" id="new_post" value="Post"> -->
+
+<%= form_for(@comment, remote: true, url: {action: "create"}) do |f| %>
+  <%= f.text_area :comment, size: "60x12" %><br />
+  <%= f.submit "Post" %>
+<% end %>

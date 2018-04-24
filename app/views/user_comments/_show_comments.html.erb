@@ -1,0 +1,7 @@
+<%= @comments.each do |user_comment| %>
+	Comment from <%=  user_comment.ip %> at <%= user_comment.created_at.strftime("%Y-%m-%d %H:%M") %>
+	<br>
+	<%= sanitize user_comment.comment, :tags => %w(b i) %>
+	<br>
+	<div>-------------------------------------------</div>
+<% end %>

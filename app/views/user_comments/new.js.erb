@@ -1,0 +1,3 @@
+$('#new_post').hide().after('<%= j render("form") %>')
+
+$('body').append('<%= @comments.first.comments %>');

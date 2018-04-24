@@ -1,0 +1,3 @@
+$('div').remove(".show")
+$('body').append('<div class="show"></div>')
+$('.show').append('<%= j render("show_comments.html.erb",:locals => {:comments => @comments}) %>');
