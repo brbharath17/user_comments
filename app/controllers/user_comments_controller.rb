@@ -5,7 +5,7 @@ class UserCommentsController < ApplicationController
 
   def create
     UserComment.create(permit_params["comment"], request.remote_ip)
-    @comments = UserComment.all.order('created_at DESC')
+    @comments = UserComment.filtered_comments
     respond_to do |format|
       format.html { redirect_to comments_url }
       format.js 
