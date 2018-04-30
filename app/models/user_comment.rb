@@ -24,4 +24,20 @@ class UserComment < ApplicationRecord
     comments
   end
 
+  def self.top_comments
+    comments = self.all.order('created_at desc')
+    return comments if comments.empty?
+    time = comments.first.created_at - 300
+    filtered_comments = [comments.first]
+    comments.each do |comment|
+      if comment.created_at < time 
+        time = comment.created_at - 300
+        filtered_comments << comment        
+      end
+
+      filtered_comments << comment  if comment.created_at <= time
+    end
+    filtered_comments    
+  end
+
 end
